@@ -1,0 +1,90 @@
+.sidebar {
+    width: 300px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar-title {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+.categories {
+    padding: 1.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.select {
+    position: relative;
+    width: 100%;
+    height: 2.5em;
+    padding: 0 .5em;
+    border: 2px solid #ddd;
+    border-radius: .25em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select:focus {
+    border-color: #6a3ecc;
+}   
+
+.caret {
+    translate: 0 25%;
+    border: .5em solid transparent;
+    border-top-color: #ddd;
+}
+
+.options {
+    position: absolute;
+    top: calc(100% + .25em);
+    left: -.12em;
+    z-index: 100;
+    width: calc(100% + .25em);
+    border: 2px solid #6a3ecc;
+    border-radius: .25em;
+    background-color: white;
+    list-style: none;
+    display: none;
+}
+
+.options.show {
+    display: block;
+}
+
+.option {
+    padding: .75em;
+    cursor: pointer;
+}
+
+.option.selected {
+    background-color: hsl(259, 58%, 70%);
+    color: white;
+}
+
+.option.highlight {
+    background-color: hsl(259, 58%, 50%);
+    color: white;
+}
+
+.price {
+    padding: 1.5em;
+}
+
+.price-inputs {
+    display: flex;
+    gap: .5em;
+    margin-bottom: 1.5em;
+}
+
+.price-inputs input {
+    width: 48%;
+    padding: .75em;
+    border: 2px solid #ddd;
+    border-radius: .25em;
+}
+
+.price-inputs input:focus {
+    border-color: #6a3ecc;
+    outline: none;
+}

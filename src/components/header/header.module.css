@@ -1,0 +1,50 @@
+.header {
+    padding: 1.25em 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #6A3ECC;
+}
+
+.logo-icon {
+    font-size: 1em;
+    margin-right: .25em;
+}
+
+.navbar {
+    display: flex;
+    gap: 1em;
+}
+
+.nav-link {
+    position: relative;
+    font-size: 1.5em;
+    color: #444;
+}
+
+.count {
+    position: absolute;
+    z-index: 100;
+    bottom: -5px;
+    left: -5px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: .65em;
+    color: white;
+}

@@ -1,0 +1,42 @@
+.container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 790px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.btn {
+    width: 100%;
+    display: block;
+    padding: 0.75em;
+    border-radius: 0.25em;
+    background: rgb(17 17 17 / 90%);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: rgb(17 17 17);
+}
