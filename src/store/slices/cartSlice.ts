@@ -1,19 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
-type Rating = {
-    rate: number,
-    count: number
-}
+import { Product } from "./productsSlice";
 
-export interface Cart {
-    id: number,
-    title: string,
-    price: number,
-    description?: string,
-    category?: string,
-    image: string,
-    rating?: Rating,
-    quantity: number
+export interface Cart extends Product {
+    quantity: number,
+    totalPrice: number
 }
 
 interface CartState {
@@ -48,7 +39,15 @@ export const cartSlice = createSlice({
 
             } else {
 
-                let cloneProduct = { ...data, quantity: value }
+                let cloneProduct = {
+                    
+                    ...data,
+                    
+                    quantity: value,
+                    
+                    totalPrice: data.price
+                
+                }
                 
                 state.cartProducts.push(cloneProduct);
 

@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface Price {
-    minPrice?: number,
-    maxPrice?: number
+    minPrice?: string,
+    maxPrice?: string
 }
 
 interface PriceState {

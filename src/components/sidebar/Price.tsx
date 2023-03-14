@@ -6,15 +6,17 @@ import { useAppDispatch } from "../../store/store";
 
 import { setPrice } from "../../store/slices/priceSlice";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Price = () => {
 
     const dispatch = useAppDispatch();
 
-    const [minPrice, setMinPrice] = useState(0);
+    const [minPrice, setMinPrice] = useState("");
 
-    const [maxPrice, setMaxPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState("");
+
+    const minInputRef = useRef<HTMLInputElement>(null);
 
     return (<div className={Styles.price}>
 
@@ -24,13 +26,17 @@ const Price = () => {
                 
             <input
                 
+                ref={minInputRef}
+                
                 type="number"
                 
                 placeholder="Min"
 
+                value={minPrice}
+
                 onChange={e => {
 
-                    setMinPrice(+e.target.value);
+                    setMinPrice(e.target.value);
 
                 }}
             
@@ -42,9 +48,11 @@ const Price = () => {
                 
                 placeholder="Max"
 
+                value={maxPrice}
+
                 onChange={e => {
 
-                    setMaxPrice(+e.target.value);
+                    setMaxPrice(e.target.value);
 
                 }}
             
@@ -59,6 +67,12 @@ const Price = () => {
             onClick={_ => {
 
                 dispatch(setPrice({ minPrice, maxPrice }));
+
+                setMinPrice("");
+
+                setMaxPrice("");
+
+                minInputRef.current?.focus();
 
             }}
         

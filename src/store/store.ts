@@ -14,6 +14,8 @@ import priceSlice from './slices/priceSlice';
 
 import productsSlice from './slices/productsSlice';
 
+import searchSlice from './slices/searchSlice';
+
 import selectOptionSlice from './slices/selectOptionSlice';
 
 import singleProductSlice from './slices/singleProductSlice';
@@ -32,7 +34,9 @@ export const store = configureStore({
 
         selectOption: selectOptionSlice,
 
-        settinPrice: priceSlice
+        settinPrice: priceSlice,
+        
+        searchTerm: searchSlice,
 
     }
     

@@ -60,7 +60,7 @@ const Cart = () => {
 
                                 <h3 className={Styles["product-title"]}>
                                     
-                                    {title.substr(0, 15)}...
+                                    {title?.substr(0, 15)}...
                                 
                                 </h3>
 
@@ -96,21 +96,19 @@ const Cart = () => {
 
                                 <span>{quantity}</span>
 
-                                <span onClick={
+                                <span onClick={() => {
 
-                                    _ => dispatch(
-
-                                        controlQuantity({ type: "add", data: product })
-
-                                    )
+                                    dispatch(controlQuantity(
+                                        { type: "add", data: product }
+                                    ))
                                     
-                                }>+</span>
+                                }}>+</span>
 
                             </div>
 
                             <span className={Styles["product-price"]}>
                                 
-                                ${(price * (quantity)).toFixed(2)}
+                                ${(price* (quantity)).toFixed(2)}
                             
                             </span>
                     

@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+import { Product } from './productsSlice';
+
 export const fetchSingleProduct = createAsyncThunk(
 
     "productsSlice/fetchSingleProduct",
@@ -15,19 +17,7 @@ export const fetchSingleProduct = createAsyncThunk(
     
 );
 
-type Rating = {
-    rate: number,
-    count: number
-}
-
-export interface SingleProduct {
-    id?: string,
-    title?: string,
-    price?: number,
-    description?: string,
-    category?: string,
-    image?: string,
-    rating?: Rating,
+export interface SingleProduct extends Product {
     quantity?: number
 }
 
@@ -36,7 +26,7 @@ interface SingleProductsState {
 }
 
 const initialState: SingleProductsState = {
-    product: {}
+    product: {price: 0}
 }
 
 export const singleProductSlice = createSlice({

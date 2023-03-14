@@ -36,7 +36,7 @@ const SingleProduct = ({ product }: Props) => {
 
             <div className={Styles["card-body"]}>
 
-                <h3 className={Styles["product-title"]}>{title.substr(0, 15)}...</h3>
+                <h3 className={Styles["product-title"]}>{title?.substr(0, 15)}...</h3>
 
                 <span className={Styles["product-price"]}>${price}</span>
 
@@ -48,11 +48,11 @@ const SingleProduct = ({ product }: Props) => {
                         
                         className={MainStyles.btn}
 
-                        onClick={_ => dispatch(
-                            
-                            addToCart({value: 1, data: product})
-                        
-                        )}
+                        onClick={_ => {
+
+                            dispatch(addToCart({ value: 1, data: product }))
+
+                        }}
                     
                     >Add</button>
 

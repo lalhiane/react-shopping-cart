@@ -2,9 +2,12 @@ import { useEffect } from "react";
 
 import { fetchProducts } from "../../store/slices/productsSlice";
 
+import { setSearchTerm } from "../../store/slices/searchSlice";
+
 import { useAppDispatch, useAppSelector } from "../../store/store";
 
 import Styles from "./products.module.css";
+
 import SingleProduct from "./SingleProduct";
 
 const AllProducts = () => {
@@ -14,6 +17,8 @@ const AllProducts = () => {
     const optionCategory = useAppSelector(state => state.selectOption.option);
 
     const settingPrice = useAppSelector(state => state.settinPrice.price);
+
+    const searchTerm = useAppSelector(state => state.searchTerm.term);
 
     const dispatch = useAppDispatch();
 
@@ -37,19 +42,51 @@ const AllProducts = () => {
 
     let cardsEl = products.map(product => {
 
-        if (settingPrice.minPrice && settingPrice.maxPrice) {
+        if (searchTerm !== "") {
 
-            if (product.price >= settingPrice.minPrice &&
-                product.price < settingPrice.maxPrice
-            ) {
+            if (product.title?.toLowerCase().startsWith(searchTerm.toLowerCase())) {
+
+                if (settingPrice.minPrice && settingPrice.maxPrice) {
+
+                    if (product.price) {
+
+                        if ((product.price >= +settingPrice.minPrice) &&
+                            (product.price < +settingPrice.maxPrice)) {
+
+                            return <SingleProduct key={product.id} product={product} />
+
+                        }
+
+                    }
+        
+                } else {
+
+                    return <SingleProduct key={product.id} product={product} />
+
+                }
+
+            }
+
+        } else {
+
+            if (settingPrice.minPrice && settingPrice.maxPrice) {
+
+                if (product.price) {
+
+                    if ((product.price >= +settingPrice.minPrice) &&
+                        (product.price < +settingPrice.maxPrice)) {
+
+                        return <SingleProduct key={product.id} product={product} />
+
+                    }
+
+                }
+    
+            } else {
 
                 return <SingleProduct key={product.id} product={product} />
 
             }
- 
-        } else {
-
-            return <SingleProduct key={product.id} product={product} />
 
         }
 

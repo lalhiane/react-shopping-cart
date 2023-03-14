@@ -138,7 +138,7 @@ const Categories = () => {
 
                             onClick={e => {
 
-                                e.stopPropagation();
+                                // e.stopPropagation();
 
                                 selectOption(category);
 
